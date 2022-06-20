@@ -1,4 +1,5 @@
 import ApiService, { ApiData } from 'src/api/ApiService';
+import { METHOD } from 'src/api/constants';
 import { ProductData, ProductPostData } from '../types';
 class ProductService {
   private static getProductUrl() {
@@ -10,7 +11,7 @@ class ProductService {
       const response = await ApiService.request(
         {
           url: `${this.getProductUrl()}`,
-          method: 'GET',
+          method: METHOD.GET,
         },
         true,
       );
@@ -25,7 +26,7 @@ class ProductService {
       const response = await ApiService.request(
         {
           url: `${this.getProductUrl()}/${id}`,
-          method: 'GET',
+          method: METHOD.GET,
         },
         true,
       );
@@ -40,7 +41,7 @@ class ProductService {
       const response = await ApiService.request(
         {
           url: `${this.getProductUrl()}/${id}`,
-          method: 'PUT',
+          method: METHOD.PUT,
           data: {
             ...ProductEditData,
           },
@@ -58,7 +59,7 @@ class ProductService {
       const response = await ApiService.request(
         {
           url: `${this.getProductUrl()}`,
-          method: 'POST',
+          method: METHOD.POST,
           data: {
             ...ProductPostData,
           },
@@ -76,7 +77,7 @@ class ProductService {
       const response = await ApiService.request(
         {
           url: `${this.getProductUrl()}/${id}`,
-          method: 'DELETE',
+          method: METHOD.DELETE,
         },
         true,
       );
