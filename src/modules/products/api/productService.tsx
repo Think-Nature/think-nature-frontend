@@ -1,16 +1,14 @@
 import ApiService, { ApiData } from 'src/api/ApiService';
 import { METHOD } from 'src/api/constants';
 import { ProductData, ProductPostData } from '../types';
-class ProductService {
-  private static getProductUrl() {
-    return 'products';
-  }
 
+const url = 'products';
+class ProductService {
   public static async getAllProducts(): Promise<ApiData<ProductData[]>> {
     try {
       const response = await ApiService.request(
         {
-          url: `${this.getProductUrl()}`,
+          url: url,
           method: METHOD.GET,
         },
         true,
@@ -25,7 +23,7 @@ class ProductService {
     try {
       const response = await ApiService.request(
         {
-          url: `${this.getProductUrl()}/${id}`,
+          url: `${url}/${id}`,
           method: METHOD.GET,
         },
         true,
@@ -40,7 +38,7 @@ class ProductService {
     try {
       const response = await ApiService.request(
         {
-          url: `${this.getProductUrl()}/${id}`,
+          url: `${url}/${id}`,
           method: METHOD.PUT,
           data: {
             ...ProductEditData,
@@ -58,7 +56,7 @@ class ProductService {
     try {
       const response = await ApiService.request(
         {
-          url: `${this.getProductUrl()}`,
+          url: `${url}`,
           method: METHOD.POST,
           data: {
             ...ProductPostData,
@@ -76,7 +74,7 @@ class ProductService {
     try {
       const response = await ApiService.request(
         {
-          url: `${this.getProductUrl()}/${id}`,
+          url: `${url}/${id}`,
           method: METHOD.DELETE,
         },
         true,

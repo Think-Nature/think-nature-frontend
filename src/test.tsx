@@ -1,7 +1,8 @@
 import React from 'react';
+import ProductPage from './modules/products/pages';
 
 const Test = () => {
-  return <div>hello</div>;
+  return <ProductPage />;
 };
 
 export default Test;
