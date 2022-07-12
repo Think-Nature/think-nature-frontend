@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 import ProductService from '../api/productService';
+import ProductCard from '../components/ProductCard';
 import { fetchProducts, selectProducts } from '../store/productSlice';
+
+import style from './style.module.scss';
 
 export default function ProductPage() {
   const dispatch = useAppDispatch();
@@ -10,9 +13,9 @@ export default function ProductPage() {
     dispatch(fetchProducts(ProductService.getAllProducts));
   }, []);
   return (
-    <div>
+    <div className={style.productCardContainer}>
       {products.map(product => (
-        <div key={product.id}>{product.name}</div>
+        <ProductCard key={product.id} data={product} />
       ))}
     </div>
   );
