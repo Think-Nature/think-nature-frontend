@@ -1,0 +1,19 @@
+$side-bar-width: 320px;
+
+.sideMenuContainer {
+  width: $side-bar-width;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  visibility: hidden;
+  transition: transform 0.4s 0, visibility 0s 0.4s;
+  transform: translateX(-$side-bar-width);
+  background-color: white;
+
+  &.slideIn {
+    visibility: visible;
+    transform: translateX(0);
+    transition: transform 0.4s 0s, visibility 0s 0s;
+  }
+}
